@@ -24,4 +24,4 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ghcr.io/ai-nsley69/pterodactyl-images:graalvm-jemalloc-${{ matrix.tag }}
+            ghcr.io/ai-nsley69/pterodactyl-images:graalvm-jemalloc
