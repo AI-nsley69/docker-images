@@ -1,0 +1,27 @@
+name: Build docker image(s)
+on:
+  push:
+
+jobs:
+  push:
+    name: "pterodactyl-images:graalvm-jemalloc-${{ matrix.tag }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/setup-buildx-action@v1
+      - name: Login to Github Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to registry
+        uses: docker/build-push-action@v2
+        with:
+          context: ./java
+          file: ./java/Dockerfile
+          platforms: linux/arm64
+          push: true
+          tags: |
+            ghcr.io/AI-nsley69/pterodactyl-images:graalvm-jemalloc-${{ matrix.tag }}
