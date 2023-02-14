@@ -4,7 +4,7 @@ MAINTAINER AI-nsley69
 
 COPY ./packages ./packages
 
-RUN rpm install ./packages/* && useradd -md /home/container container && rm -rf ./packages
+RUN rpm -i ./packages/* && useradd -md /home/container container && rm -rf ./packages
 
 USER container
 
