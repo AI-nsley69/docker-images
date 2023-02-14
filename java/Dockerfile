@@ -10,7 +10,7 @@ USER container
 
 WORKDIR /home/container
 
-ENV USER=container HOME=/home/container LD_PRELOAD=/usr/lib/libjemalloc.so.2
+ENV USER=container HOME=/home/container LD_PRELOAD=/usr/lib64/libjemalloc.so.2
 
 COPY ./entrypoint.sh /entrypoint.sh
 
