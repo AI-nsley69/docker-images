@@ -2,7 +2,9 @@ FROM ghcr.io/graalvm/graalvm-ce
 
 MAINTAINER AI-nsley69
 
-RUN microdnf --enablerepo=oraclelinux-release-el9 && microdnf install jemalloc && microdnf clean && useradd -md /home/container container
+COPY ./packages ./packages
+
+RUN microdnf install jemalloc ./packages/* && microdnf clean && useradd -md /home/container container && rm -rf ./packages
 
 USER container
 
