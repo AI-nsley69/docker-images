@@ -4,7 +4,7 @@ MAINTAINER AI-nsley69
 
 COPY ./packages ./packages
 
-RUN microdnf install ./packages/* && microdnf clean && useradd -md /home/container container && rm -rf ./packages
+RUN rpm install ./packages/* && useradd -md /home/container container && rm -rf ./packages
 
 USER container
 
