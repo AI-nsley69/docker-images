@@ -28,3 +28,12 @@ jobs:
           push: true
           tags: |
             ghcr.io/ai-nsley69/graalvm-jemalloc:latest
+      - name: Publish to registry
+        uses: docker/build-push-action@v2
+        with:
+          context: ./mcdreforged
+          file: ./mcdreforged/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/ai-nsley69/mcdreforged:latest
