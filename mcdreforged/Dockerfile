@@ -1,6 +1,6 @@
 FROM ghcr.io/graalvm/graalvm-ce
 
-RUN useradd -md /home/container container && dnf install -y python3-pip && pip3 install --upgrade pip && pip3 install mcdreforged
+RUN useradd -md /home/container container && yum install -y python3-pip && pip3 install --upgrade pip && pip3 install mcdreforged
 
 WORKDIR /home/container
 
