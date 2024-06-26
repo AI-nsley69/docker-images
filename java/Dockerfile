@@ -1,7 +1,5 @@
 FROM ghcr.io/graalvm/graalvm-ce
 
-MAINTAINER AI-nsley69
-
 COPY ./packages ./packages
 
 RUN rpm -i ./packages/* && useradd -md /home/container container && rm -rf ./packages

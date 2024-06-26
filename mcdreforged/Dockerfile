@@ -1,8 +1,6 @@
 FROM ghcr.io/graalvm/graalvm-ce
 
-MAINTAINER AI-nsley69
-
-RUN useradd -md /home/container container && pip3 install mcdreforged
+RUN useradd -md /home/container container && rpm -i python3-pip && pip3 install --upgrade pip && pip3 install mcdreforged
 
 WORKDIR /home/container
 
