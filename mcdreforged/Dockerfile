@@ -1,6 +1,11 @@
-FROM ghcr.io/graalvm/graalvm-ce
+FROM eclipse-temurin:21-alpine
 
-RUN useradd -md /home/container container && yum install -y python3-pip && pip3 install --upgrade pip && pip3 install mcdreforged
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip mcdreforged
+RUN useradd -md /home/container container
 
 WORKDIR /home/container
 
